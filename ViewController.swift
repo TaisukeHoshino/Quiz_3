@@ -42,7 +42,14 @@ class ViewController: UIViewController {
 
     
     
-
+    @IBAction func button1Action(_ sender: UIButton) {
+        if button1.titleLabel?.text == quiz1.answer{
+            print("正解")
+        }
+    }
+    
+    
+    
     
     
     
