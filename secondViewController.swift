@@ -15,6 +15,7 @@ class secondViewController: UIViewController {
     @IBOutlet weak var button2: UIButton!
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var quizTextView: UITextView!
+    @IBOutlet weak var backButton: UIButton!
     
     var secondQuizArray: [secondQuiz] = []
     
@@ -98,6 +99,10 @@ class secondViewController: UIViewController {
             print("不正解")
         }
     }
+    @IBAction func backToFirstQuiz(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     
     
@@ -119,6 +124,7 @@ class secondQuiz{
     var text: String
     //答えの初期設定
     var answer: String
+    //
     
     init(option1: String, option2: String, option3: String,text: String, answer: String) {
         self.option1 = option1
