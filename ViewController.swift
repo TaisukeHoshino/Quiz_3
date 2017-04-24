@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //Quizのインスタンス生成
-        let quiz1 = Quiz(option1: "1000cm", option2: "2000cm", option3: "3000cm", text: "私の身長は？", answer: "1000cm")
-        let quiz2 = Quiz(option1: "1111cm", option2: "2222cm", option3: "3333cm", text: "君の身長は？", answer: "3333cm")
-        let quiz3 = Quiz(option1: "1234cm", option2: "2345m", option3: "3456cm", text: "ドラえもんの身長は？", answer: "3456cm")
+        let quiz1 = Quiz(option1: "1000cm", option2: "2000cm", option3: "3000cm", text: "Q.私の身長は？", answer: "1000cm")
+        let quiz2 = Quiz(option1: "1111cm", option2: "2222cm", option3: "3333cm", text: "Q.君の身長は？", answer: "3333cm")
+        let quiz3 = Quiz(option1: "1234cm", option2: "2345m", option3: "3456cm", text: "Q.ドラえもんの身長は？", answer: "3456cm")
         
         //配列にクイズを入れていく
         quizArray.append(quiz1)
@@ -53,9 +53,9 @@ class ViewController: UIViewController {
     }
     //クイズの選択肢のカラーをリセット
     func resetColor(){
-        button1.setTitleColor(UIColor.blue, for: .normal) // タイトルの色
-        button2.setTitleColor(UIColor.blue, for: .normal) // タイトルの色
-        button3.setTitleColor(UIColor.blue, for: .normal) // タイトルの色
+        button1.setTitleColor(UIColor.white, for: .normal) // タイトルの色
+        button2.setTitleColor(UIColor.white, for: .normal) // タイトルの色
+        button3.setTitleColor(UIColor.white, for: .normal) // タイトルの色
 
     }
     //クイズを表示定義
@@ -199,24 +199,3 @@ class Quiz{
 
 }
 
-@IBDesignable class CustomButton: UIButton {
-    
-    // 角丸の半径(0で四角形)
-    @IBInspectable var cornerRadius: CGFloat = 0.0
-    
-    // 枠
-    @IBInspectable var borderColor: UIColor = UIColor.clear
-    @IBInspectable var borderWidth: CGFloat = 0.0
-    
-    override func draw(_ rect: CGRect) {
-        // 角丸
-        self.layer.cornerRadius = cornerRadius
-        self.clipsToBounds = (cornerRadius > 0)
-        
-        // 枠線
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderWidth
-        
-        super.draw(rect)
-    }
-}
