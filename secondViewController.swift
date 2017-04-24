@@ -16,6 +16,7 @@ class secondViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var quizTextView: UITextView!
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var quizImageView: UIImageView!
     
     var secondQuizArray: [secondQuiz] = []
     
@@ -26,9 +27,9 @@ class secondViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         //Quizのインスタンス生成
-        let quiz1 = secondQuiz(option1: "1000cm", option2: "2000cm", option3: "3000cm", text: "私の身長は？", answer: "1000cm")
-        let quiz2 = secondQuiz(option1: "1111cm", option2: "2222cm", option3: "3333cm", text: "君の身長は？", answer: "3333cm")
-        let quiz3 = secondQuiz(option1: "1234cm", option2: "2345m", option3: "3456cm", text: "ドラえもんの身長は？", answer: "3456cm")
+        let quiz1 = secondQuiz(option1: "1000cm", option2: "2000cm", option3: "3000cm", text: "Q.私の身長は？", answer: "1000cm", quizImage: "doraemon.png")
+        let quiz2 = secondQuiz(option1: "1111cm", option2: "2222cm", option3: "3333cm", text: "Q.私の身長は？", answer: "3333cm", quizImage: "doraemon2.jpg")
+        let quiz3 = secondQuiz(option1: "1234cm", option2: "2345m", option3: "3456cm", text: "Q.私の身長は？", answer: "3456cm", quizImage: "doraemon3.png")
         
         //配列にクイズを入れていく
         secondQuizArray.append(quiz1)
@@ -40,7 +41,7 @@ class secondViewController: UIViewController {
         //クイズのビュー(テキスト？)に値を入れる(クイズの初期値)
         showQuiz()
         
-        
+
     }
     //次のクイズにチェンジ定義
     func chageQuiz(){
@@ -54,8 +55,7 @@ class secondViewController: UIViewController {
         button1.setTitle(secondQuizArray[quizNumber].option1, for: .normal)
         button2.setTitle(secondQuizArray[quizNumber].option2, for: .normal)
         button3.setTitle(secondQuizArray[quizNumber].option3, for: .normal)
-        print(secondQuizArray[quizNumber].option1)
-        
+        quizImageView.image = UIImage(named: secondQuizArray[quizNumber].quizImage)
     }
     //クイズをリセット定義
     func resetQuiz(){
@@ -66,7 +66,7 @@ class secondViewController: UIViewController {
     }
     //アラート定義
     func alertQuiz(){
-        let alertController = UIAlertController(title: "あああああ", message: "いいいい", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "ゲームクリア", message: "おめでとうございます！！", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: {(action) in self.resetQuiz()})
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
@@ -124,14 +124,16 @@ class secondQuiz{
     var text: String
     //答えの初期設定
     var answer: String
-    //
+    //クイズの画像
+    var quizImage: String
     
-    init(option1: String, option2: String, option3: String,text: String, answer: String) {
+    init(option1: String, option2: String, option3: String,text: String, answer: String, quizImage: String) {
         self.option1 = option1
         self.option2 = option2
         self.option3 = option3
         self.text = text
         self.answer = answer
+        self.quizImage = quizImage
     }
     
     //シャッフルメソッド定義
@@ -148,3 +150,4 @@ class secondQuiz{
         
     }
 }
+
