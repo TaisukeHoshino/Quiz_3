@@ -12,10 +12,26 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var gachaButton: UIButton!
     @IBOutlet weak var quizButton: UIButton!
+    @IBOutlet weak var headerTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // コメントのTextViewに枠をつける。
+        headerTextView.layer.borderWidth = 2
+        
+        // 枠の色を設定する。
+        headerTextView.layer.borderColor = UIColor.lightGray.cgColor
+        
+        // 枠の角を丸くする。
+        headerTextView.layer.cornerRadius = 8
         // Do any additional setup after loading the view.
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,14 +47,4 @@ class HomeViewController: UIViewController {
         performSegue(withIdentifier: "toQuiz", sender: nil)
 
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
+ }
