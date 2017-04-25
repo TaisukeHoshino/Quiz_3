@@ -15,20 +15,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var headerTextView: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // コメントのTextViewに枠をつける。
-        headerTextView.layer.borderWidth = 2
-        
-        // 枠の色を設定する。
-        headerTextView.layer.borderColor = UIColor.lightGray.cgColor
-        
-        // 枠の角を丸くする。
-        headerTextView.layer.cornerRadius = 8
-        // Do any additional setup after loading the view.
-        
-        
-        
-        
-        
+     
         
         
         
